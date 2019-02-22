@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+</head>
+
+<body style="background-color: #fcfcfc">
+    <div class="container">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-4 mt-4">
+                <div class="position-fixed">
+                    <img class="rounded-circle mx-auto d-block img-fluid" src="https://miro.medium.com/fit/c/240/240/1*8VIUbzNLG1wnC4HrE0F6EQ.jpeg"
+                        width="150px" />
+                    <h2 class="text-center">Valery Ponomarenko</h2>
+                    <p class="text-center">I'm an Android Developer</p>
+                    {% include navigation.html %}
+                    <div class="row justify-content-center mt-4">
+                        <a class="btn-lg" type="button" role="button"><i class="fab fa-twitter"></i></a>
+                        <a class="btn-lg" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn-lg" type="button" role="button"><i class="fab fa-medium-m"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

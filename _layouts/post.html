@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="shadow-sm card mt-4">
+    <div class="card-body">
+        <p class="text-muted">{{ page.date | date_to_string }}</p>
+        <h4 class="card-title">{{ page.title }}</h4>
+        {{ content }}
+    </div>
+    <div class="card-footer text-muted">
+        <div class="float-right">
+            <a href="#" class="badge badge-pill badge-light">Tag 1</a>
+            <a href="#" class="badge badge-pill badge-light">Tag 2</a>
+        </div>
+    </div>
+</div>

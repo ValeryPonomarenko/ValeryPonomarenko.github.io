@@ -1,0 +1,5 @@
+<nav class="nav nav-pills flex-column mt-4">
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" class="nav-link {% if page.url == item.link %}active{% endif %}">{{ item.name }}</a>
+    {% endfor %}
+</nav>
