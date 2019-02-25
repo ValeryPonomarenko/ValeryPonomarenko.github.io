@@ -2,7 +2,7 @@
 layout: default
 ---
 {% for post in paginator.posts %}
-<div class="shadow-sm card">
+<div class="shadow-sm card mb-4">
     <div class="card-body">
         <p class="text-muted">{{ post.date | date_to_string }}</p>
         <h4 class="card-title"><a href="{{ post.url }}">{{ post.title }}</a></h4>
@@ -17,6 +17,7 @@ layout: default
     </div>
 </div>
 {% endfor %}
+{% if paginator.total_pages > 1 %}
 <nav aria-label="Page navigation" class="mt-4">
     <ul class="pagination pagination-sm">
         <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
@@ -25,8 +26,13 @@ layout: default
                 <span class="sr-only">Previous</span>
             </a>
         </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        {% for page in (1..paginator.total_pages) %}
+        {% if page == 1 %}
+        <li class="page-item {% if page == paginator.page %}active{% endif %}"><a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">{{ page }}</a></li>
+        {% else %}
+        <li class="page-item {% if page == paginator.page %}active{% endif %}"><a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a></li>
+        {% endif %}
+        {% endfor %}
         <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
             <a class="page-link" href="{{ paginator.next_page_path }}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
@@ -35,3 +41,4 @@ layout: default
         </li>
     </ul>
 </nav>
+{% endif %}

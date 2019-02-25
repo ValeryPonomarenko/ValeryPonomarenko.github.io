@@ -9,8 +9,9 @@ layout: default
     </div>
     <div class="card-footer text-muted">
         <div class="float-right">
-            <a href="#" class="badge badge-pill badge-light">Tag 1</a>
-            <a href="#" class="badge badge-pill badge-light">Tag 2</a>
+            {% for category in page.categories %}
+            <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="badge badge-pill badge-light">{{ category }}</a>
+            {% endfor %}
         </div>
     </div>
 </div>
