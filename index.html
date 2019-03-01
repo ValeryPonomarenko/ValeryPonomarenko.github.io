@@ -10,9 +10,7 @@ layout: default
     </div>
     <div class="card-footer text-muted">
         <div class="float-right">
-            {% for category in post.categories %}
-            <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="badge badge-pill badge-light">{{ category }}</a>
-            {% endfor %}
+            {% include tags.html %}
         </div>
     </div>
 </div>

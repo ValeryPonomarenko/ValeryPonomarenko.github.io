@@ -1,0 +1,10 @@
+{% if post %}
+{% assign tags = post.tags %}
+{% else %}
+{% assign tags = page.tags %}
+{% endif %}
+<div class="float-right">
+    {% for tag in tags %}
+    <a href="{{site.baseurl}}/tags/#{{tag|slugize}}" class="badge badge-pill badge-light">{{ tag }}</a>
+    {% endfor %}
+</div>

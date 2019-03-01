@@ -1,0 +1,13 @@
+---
+layout: default
+permalink: /article/
+title: Articles
+---
+<h2>Articles</h2>
+<ul>
+    {% for post in site.categories.article %}
+    <li>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+    </li>
+    {% endfor %}
+</ul>
