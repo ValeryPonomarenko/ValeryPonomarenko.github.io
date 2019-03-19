@@ -1,15 +1,4 @@
 ---
 layout: default
 ---
-<div class="shadow-sm card">
-    <div class="card-body">
-        <p class="text-muted">{{ page.date | date_to_string }}</p>
-        <h4 class="card-title">{{ page.title }}</h4>
-        {{ content }}
-    </div>
-    <div class="card-footer text-muted">
-        <div class="float-right">
-            {% include tags.html %}
-        </div>
-    </div>
-</div>
+{% include article.html %}

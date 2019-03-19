@@ -1,0 +1,19 @@
+{% if post %}
+{% assign article = post %}
+{% assign articleBody = post.excerpt %}
+{% else %}
+{% assign article = page %}
+{% assign articleBody = content %}
+{% endif %}
+<div class="shadow-sm card mb-4">
+    <div class="card-body">
+        <p class="font-weight-lighter" style="font-size: 10pt;">{{ article.date | date_to_string }}</p>
+        <h4 class="card-title">{% if post %}<a href="{{ post.url }}">{% endif %}{{ article.title }}{% if post %}</a>{% endif %}</h4>
+        {{ articleBody }}
+    </div>
+    <div class="card-footer text-muted">
+        <div class="float-right">
+            {% include tags.html %}
+        </div>
+    </div>
+</div>
