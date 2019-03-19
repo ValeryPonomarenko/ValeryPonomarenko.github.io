@@ -28,6 +28,8 @@ github_username:  valeryponomarenko
 linkedin_username: ponomarenkovalery
 medium_username: valeroncho
 
+google_analytics: UA-77815807-3
+
 # Build settings
 markdown: kramdown
 plugins:
