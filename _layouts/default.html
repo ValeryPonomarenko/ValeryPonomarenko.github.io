@@ -12,6 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/tango.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77815807-3"></script>
@@ -35,9 +37,12 @@
                     <p class="text-center">I'm an Android Developer</p>
                     {% include navigation.html %}
                     <div class="row justify-content-center mt-4">
-                        <a class="btn-lg" type="button" role="button"><i class="fab fa-twitter"></i></a>
-                        <a class="btn-lg" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn-lg" type="button" role="button"><i class="fab fa-medium-m"></i></a>
+                        <a href="https://twitter.com/{{ site.twitter_username }}" class=" btn-lg" type="button"
+                            role="button"><i class=" fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class=" btn-lg" type="button"
+                            role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://medium.com/@{{ site.medium_username }}" class="btn-lg" type="button"
+                            role="button"><i class="fab fa-medium-m"></i></a>
                     </div>
                 </div>
             </div>
@@ -47,4 +52,5 @@
         </div>
     </div>
 </body>
+
 </html>
