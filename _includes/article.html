@@ -12,8 +12,9 @@
         {{ articleBody }}
     </div>
     <div class="card-footer text-muted">
-        <div class="float-right">
-            {% include tags.html %}
-        </div>
+        {% unless post %}
+        {% include share.html %}
+        {% endunless %}
+        {% include tags.html %}
     </div>
 </div>
