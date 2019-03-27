@@ -10,11 +10,11 @@
         <p class="font-weight-lighter" style="font-size: 10pt;">{{ article.date | date_to_string }}</p>
         <h4 class="card-title">{% if post %}<a href="{{ post.url }}">{% endif %}{{ article.title }}{% if post %}</a>{% endif %}</h4>
         {{ articleBody }}
-        {% unless post %}
-        {% include share.html %}
-        {% endunless %}
     </div>
     <div class="card-footer text-muted">
         {% include tags.html %}
     </div>
 </div>
+{% unless post %}
+{% include share.html %}
+{% endunless %}
