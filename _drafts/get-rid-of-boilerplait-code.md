@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Get rid of boilerplait code when using ComponentsManager"
+title: "Boilerplait code when using ComponentsManager"
 categories: article
 tags: [Dagger, Components Manager]
 ---
@@ -19,11 +19,38 @@ XInjectionManager
 ```
 It is clear that we cannot just remove the code, so we will move it to the Dagger's modules. In the `Application` class the list of binders will be injected
 ```kotlin
-val listOfBinders: List<IHasComponent<Any>> = /* get the list */
-listOfBinder.forEach {
-    XInjectionManager.bind(it)
+class MyApp : Application() {
+    @Inject
+    lateinit var listOfBinders: List<IHasComponent<Any>>
+
+    override fun onCreate() {
+        listOfBinder.forEach {
+            XInjectionManager.bind(it)
+        }
+    }
 }
 ```
 
 ##### Let's start
+Firstly create a module class that will store all of the binders
+```kotlin
+@Module
+class ComponentBinders {
+    @Provides
+    @IntoSet
+    fun provideNetworkComponentBinder(): IHasComponent<Any> =
+        object : IHasComponent<NetworkComponent> {
+            override fun getComponent() = DaggerNetworkComponent().create()
+        }
 
+    @Provides
+    @IntoSet
+    fun provideAnalyticsComponentBinder(): IHasComponent<Any> =
+        object : IHasComponent<AnalyticsComponent> {
+            override fun getComponent() = DaggerAnalyticsComponent().create()
+        }
+}
+```
+Don't forget to add the module at the App's component. That's all.
+
+Unfortunately, the solution is not perfect and it has a drawback. Let's imagine that the `AnalyticsComponent` needs a dependency from the `NetworkComponent`, so the `NetworkComponent` must be created before the `AnalyticsComponent`, at this point we have to prioritize the list, but how can we do it?
