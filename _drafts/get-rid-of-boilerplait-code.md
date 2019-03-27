@@ -4,9 +4,9 @@ title: "Get rid of boilerplait code when using ComponentsManager"
 categories: article
 tags: [Dagger, Components Manager]
 ---
-When you have a huge multi-modular project and you use ComponentsManager it is lickely that you have tons of code that just creates an anonumous object that bind the Dagger's components. In this article I will show how to make this code better.
+When you have a huge multi-modular project and you use ComponentsManager it is likely that you have tons of code that just creates an anonymous object that binds the Dagger's components. In the article I will show you how to make the code cleaner.
 
-The idea is to move the lines like these
+The idea is to get rid of these lines in your `Application` class.
 ```kotlin
 XInjectionManager
     .bindComponent(object : IHasComponent<SomeComponent> {
@@ -17,9 +17,9 @@ XInjectionManager
         fun getComponent() = DaggerAnotherComponent.create()
     })
 ```
-to another place and in the Application class just get the list of the anonimous classes and iterate over it. So we will end up with something like this
+It is clear that we cannot just remove the code, so we will move it to the Dagger's modules. In the `Application` class the list of binders will be injected
 ```kotlin
-val listOfBinders: List<IHasComponent<Any>> = ...
+val listOfBinders: List<IHasComponent<Any>> = /* get the list */
 listOfBinder.forEach {
     XInjectionManager.bind(it)
 }

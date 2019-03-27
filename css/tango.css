@@ -1,7 +1,7 @@
 .highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #8f5902; font-style: italic } /* Comment */
-.highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+/* .highlight .err { color: #a40000; border: 1px solid #ef2929 } Error */
 .highlight .g { color: #000000 } /* Generic */
 .highlight .k { color: #204a87; font-weight: bold } /* Keyword */
 .highlight .l { color: #000000 } /* Literal */
@@ -76,4 +76,4 @@
 .highlight .vm { color: #000000 } /* Name.Variable.Magic */
 .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
 .highlight pre { padding: 4px; }
-.highlighter-rouge { color: black; background-color: #f2f2f2; padding: 4px; }
+code.highlighter-rouge { color: black; background-color: #f8f8f8; padding: 4px; }
