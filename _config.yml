@@ -30,6 +30,8 @@ medium_username: valeroncho
 
 google_analytics: UA-77815807-3
 
+include: ['policies']
+
 # Build settings
 markdown: kramdown
 plugins:
