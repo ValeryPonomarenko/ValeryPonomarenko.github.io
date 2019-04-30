@@ -3,7 +3,9 @@ layout: post
 title:  "Navigation in Multi-Modules Projects"
 date:   2019-04-30 00:00:00 +0300
 categories: article
+poster: "https://cdn-images-1.medium.com/max/2400/1*vlWn4ojvmK8k8-tLHWbCCw.jpeg"
 ---
+
 Navigation in developing Android apps is quite important and you should think twice what library suits (or your own solution) most and how it will be convenient to use when the app becomes bigger. Also, it might be good to think about how easy it will be to change your implementation to another one.
 
 Before we will start, let me tell a story. Let's call it like this "How we made project modular and why I hated our navigation".
