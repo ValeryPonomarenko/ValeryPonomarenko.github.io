@@ -3,6 +3,7 @@ layout: post
 title:  "Navigation in Multi-Modules Projects"
 date:   2019-04-30 14:50:00 +0300
 categories: article
+tags: ["navigation", "multi-modules"]
 poster: "/assets/navigation/poster.jpg"
 ---
 
