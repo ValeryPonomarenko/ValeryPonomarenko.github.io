@@ -99,7 +99,7 @@ Unit tests
 
 UI tests
 ```yaml
-  unit-tests:
+  ui-tests:
     <<: *defaults
     steps:
       - restore_cache:
@@ -124,6 +124,58 @@ UI tests
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }} 
 ```
+
+Publish app
+```yaml
+  deploy-internal:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Store the google play key
+          command: echo $GOOGLE_PLAY_KEY > gplay_key.json
+      - run:
+          name: Download ci's data
+          command: ./ci/download_ci_data.sh
+      - run:
+          name: Deploy the app to the internal track
+          command: ./gradlew publish
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+```
+
+That is. We have a job for every its own purpose and now we can make workflows. Let's consider what workflow we need. I guess, we need a development workflow that will run checkstyle, static analizer, unit tests and may be UI tests. Then, we will need a release workflow that will build a release verion of the app and publish it into Google Play, also it may run UI tests. So let's add these workflows.
+
+```yaml
+workflows:
+  version: 2
+
+  develop:
+    jobs:
+      - code-style
+      - code-quality:
+          requires: code-style
+      - unit-tests:
+          requires: code-quality
+
+  deploy-internal:
+    jobs:
+      - unit-tests
+      - ui-tests:
+          requires: unit-tests
+      - deploy-internal:
+          filters:
+            branches:
+              only:
+                - /internal.*/
+          requires:
+            - ui-tests
+```
+Here is the workflows. 
 
 Lifehacks
 
