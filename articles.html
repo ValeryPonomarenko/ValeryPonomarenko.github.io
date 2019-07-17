@@ -3,6 +3,30 @@ layout: default
 permalink: /article/
 title: Articles
 ---
+{% assign divWasOpened = false %}
+
 {% for post in site.categories.article %}
-{% include article.html %}
-{% endfor %}
+    {% assign index = forloop.index | modulo:2 %}
+
+    {% if forloop.first == true %}
+        {% include article.html %}
+    {% elsif forloop.last == true and divWasOpened == false %}
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {% include small_article.html %}
+            </div>
+        </div>
+    {% elsif index == 0 %}
+        {% assign divWasOpened = true %}
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {% include small_article.html %}
+            </div>
+    {% elsif divWasOpened == true %}
+        {% assign divWasOpened = false %}
+            <div class="col-12 col-md-6">
+                {% include small_article.html %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor%}

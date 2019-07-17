@@ -1,0 +1,40 @@
+.article-text { 
+    line-height: 1.7; 
+    font-size: 17px;
+}
+
+.article-text  h1 {
+    font-size: 2.25rem;
+    font-weight: 550;
+}
+
+.article-text h2 {
+    font-size: 1.8rem;
+    font-weight: 450;
+}
+
+.article-text h3 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.article-text h4 {
+    font-size: 1.40rem;
+    font-weight: 350;
+}
+
+.poster {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.poster-small {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.img-fluid {
+    margin-bottom: 16px;
+}

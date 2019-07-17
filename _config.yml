@@ -20,7 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://vponomarenko.me" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Usernames
 twitter_username: iamvaleroncho
@@ -30,14 +30,29 @@ medium_username: valeroncho
 
 google_analytics: UA-77815807-3
 
+include: ['policies']
+
 # Build settings
 markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
 
 paginate: 5
 highlighter: rouge
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+defaults:
+  -
+    scope:
+      path: "policies/**/*.html"
+    values:
+      sitemap: false
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

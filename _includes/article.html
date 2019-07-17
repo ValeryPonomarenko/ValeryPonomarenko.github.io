@@ -6,14 +6,17 @@
 {% assign articleBody = content %}
 {% endif %}
 <div class="shadow-sm card mb-4">
-    <div class="card-body">
+    <div class="card-body article-text">
         <p class="font-weight-lighter" style="font-size: 10pt;">{{ article.date | date_to_string }}</p>
-        <h4 class="card-title">{% if post %}<a href="{{ post.url }}">{% endif %}{{ article.title }}{% if post %}</a>{% endif %}</h4>
+        <h1 class="card-title">{% if post %}<a href="{{ article.url }}">{% endif %}{{ article.title }}{% if post %}</a>{% endif %}</h1>
+        {% if article.poster %}{% if post %}<img src="{{ article.poster }}" class="img-fluid poster" alt="Article poster">{% else %}
+        <img src="{{ article.poster }}" class="img-fluid" alt="Article poster">{% endif %}{% endif %}
         {{ articleBody }}
     </div>
     <div class="card-footer text-muted">
-        <div class="float-right">
-            {% include tags.html %}
-        </div>
+        {% include tags.html %}
     </div>
 </div>
+{% unless post %}
+{% include share.html %}
+{% endunless %}
