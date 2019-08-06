@@ -25,19 +25,11 @@
         <div class="row">
             <div class="d-none d-lg-block col-lg-4">
                 <div class="position-fixed">
-                    <img class="rounded-circle mx-auto d-block img-fluid"
-                        src="https://miro.medium.com/fit/c/240/240/1*8VIUbzNLG1wnC4HrE0F6EQ.jpeg" width="150px" />
+                    <img class="rounded-circle mx-auto d-block img-fluid" src="/assets/me.jfif" width="150px" />
                     <h2 class="text-center">Valery Ponomarenko</h2>
                     <p class="text-center">I'm an Android Developer</p>
                     {% include navigation.html %}
-                    <div class="row justify-content-center mt-4">
-                        <a href="https://twitter.com/{{ site.twitter_username }}" class=" btn-lg" type="button"
-                            role="button"><i class=" fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class=" btn-lg" type="button"
-                            role="button"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://medium.com/@{{ site.medium_username }}" class="btn-lg" type="button"
-                            role="button"><i class="fab fa-medium-m"></i></a>
-                    </div>
+                    {% include social_links.html %}
                 </div>
             </div>
             <div class="col-12 col-lg-8">
@@ -45,7 +37,6 @@
             </div>
         </div>
     </div>
-
     {% include analytics.html %}
 </body>
 
