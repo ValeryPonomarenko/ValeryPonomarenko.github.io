@@ -38,3 +38,11 @@
 .img-fluid {
     margin-bottom: 16px;
 }
+
+.tag {
+    display: none
+}
+
+.tag:target { 
+    display: block
+}
