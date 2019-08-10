@@ -76,8 +76,8 @@ class QuestionsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, 
         container: ViewGroup?, 
-        savedInstanceState: Bundle
-    ?): View? = inflater.inflate(R.layout.fragment_questions, container, false)
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_questions, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -143,8 +143,8 @@ class QuestionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, 
         container: ViewGroup?, 
-        savedInstanceState: Bundle
-    ?): View? = inflater.inflate(R.layout.fragment_question, container, false)
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_question, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -194,8 +194,8 @@ class RightAnswerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, 
         container: ViewGroup?, 
-        savedInstanceState: Bundle
-    ?): View? = inflater.inflate(R.layout.fragment_right, container, false)
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_right, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -226,8 +226,8 @@ class WrongAnswerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, 
         container: ViewGroup?, 
-        savedInstanceState: Bundle
-    ?): View? = inflater.inflate(R.layout.fragment_wrong, container, false)
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_wrong, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
