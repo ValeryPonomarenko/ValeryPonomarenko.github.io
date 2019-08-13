@@ -2,9 +2,11 @@
 layout: post
 title: "Boilerplait code when using ComponentsManager"
 categories: article
-tags: [Dagger, Components Manager]
+tags: [dagger, components manager]
+excerpt_separator: <!--more-->
 ---
 When you have a huge multi-modular project and you use ComponentsManager it is likely that you have tons of code that just creates an anonymous object that binds the Dagger's components. In the article I will show you how to make the code cleaner.
+<!--more-->
 
 The idea is to get rid of these lines in your `Application` class.
 ```kotlin
