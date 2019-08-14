@@ -2,7 +2,7 @@
 layout: playground
 title: "Play with Patterns - Singleton"
 categories: article
-tags: ["kotlin", "design patterns"]
+# tags: ["kotlin", "design patterns"]
 excerpt_separator: <!--more-->
 poster: "/assets/patterns/singleton.jpg"
 hidden: true
