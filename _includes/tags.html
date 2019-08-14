@@ -5,6 +5,6 @@
 {% endif %}
 <div class="float-right">
     {% for tag in tags %}
-    <a href="{{site.baseurl}}/tags/#{{tag|slugize}}" class="badge badge-pill badge-light">{{ tag }}</a>
+    <a href="{{site.baseurl}}/tags/#{{ tag | slugify }}" class="badge badge-pill badge-light">{{ tag }}</a>
     {% endfor %}
 </div>
