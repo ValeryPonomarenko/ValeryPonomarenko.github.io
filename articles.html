@@ -4,11 +4,16 @@ permalink: /article/
 title: Articles
 ---
 {% assign divWasOpened = false %}
+{% assign realIndex = 0 %}
 
 {% for post in site.categories.article %}
-    {% assign index = forloop.index | modulo:2 %}
+    {% if post.hidden == true %}
+        {% continue %}
+    {% endif %}
 
-    {% if forloop.first == true %}
+    {% assign index = realIndex | modulo:2 %}
+    
+    {% if realIndex == 0 %}
         {% include article.html %}
     {% elsif forloop.last == true and divWasOpened == false %}
         <div class="row">
@@ -18,9 +23,9 @@ title: Articles
         </div>
     {% elsif index == 0 %}
         {% assign divWasOpened = true %}
-        <div class="row">
+         <div class="row">
             <div class="col-12 col-md-6">
-                {% include small_article.html %}
+                {% include small_article.html %} 
             </div>
     {% elsif divWasOpened == true %}
         {% assign divWasOpened = false %}
@@ -29,4 +34,5 @@ title: Articles
             </div>
         </div>
     {% endif %}
+    {% assign realIndex = realIndex | plus:1 %}
 {% endfor%}
