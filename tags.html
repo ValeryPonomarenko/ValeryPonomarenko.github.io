@@ -11,8 +11,8 @@ title: Tags
         {% for post in tag[1] %}
         <a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
             <li>
-                {{ post.title }}
-                <small class="post-date">{{ post.date | date_to_string }}</small>
+                <small class="post-date">[{{ post.date | date_to_string }}]</small> {{ post.title }}
+                <div href="{{site.baseurl}}/tags/#{{ tag[0] | slugify }}" class="badge badge-pill badge-secondary">{{ post.categories }}</div>
             </li>
         </a>
         {% endfor %}
