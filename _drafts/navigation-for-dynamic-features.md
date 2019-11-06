@@ -148,7 +148,7 @@ Once we did it, they will appear on the graph and it will be possible to add con
 
 **graph image**
 
-Final step is to implement the navigation interface in the Navigator. Also the QestionsFragment was change a little, you can see changed code [here](link).
+The final step is to implement the navigation interface in the Navigator class. Also the QestionsFragment was change a little, you can see changed code [here](link).
 
 ```kotlin
 class Navigator : QuestionsNavigation, QuestionNavigation, RightAnswerNavigation,
@@ -174,16 +174,16 @@ class Navigator : QuestionsNavigation, QuestionNavigation, RightAnswerNavigation
 ```
 
 #### Result
-Now you can run the application and make sure that everything works.
-What I do not like in this solution is that we have to put the navigation interface inside the app module, add some xml code by ourselves. But we could fix these issues.
+Now you can run the application and make sure that everything works fine.
+What I do not like in this solution is that we have to put the navigation interface inside the app module, write some xml code by ourselves so we can mispell the path of the fragment and we will know that only when we run the app. Let's fix these issues.
 
 ### Make Navigation Great Again
-Instead of adding navigaion interface inside the app module, let's create a new one that will be called leaderboard api module. The diagram shows how the modules are connected.
+Instead of adding navigaion interface inside the app module, let's create a new module that will be called leaderboard api module. The diagram shows how the modules are connected.
 
 ![App Modules](/assets/dynamic-feature-navigation/second-diagram.png){:class="img-fluid mx-auto d-block"}
 
 #### Leaderboard Api Module
-Create a new module. Here is the gradle file of the leaderboard api module
+The leaderboard module has all the classes that are used by the Leaderboard module and the App module.Here is the gradle file of the leaderboard api module
 
 ```gradle
 apply plugin: 'com.android.library'
@@ -194,10 +194,10 @@ dependencies {
 }
 ```
 
-And move the LeaderboardNavigation interface from the app module inside the new one.
+Move the LeaderboardNavigation interface from the App module inside the new one.
 
 #### Leaderboard Module
-Here is the changed gradle file.
+Here is the changed gradle file of the Leaderboard module.
 
 ```gradle
 apply plugin: 'com.android.dynamic-feature'
@@ -214,7 +214,7 @@ dependencies {
 }
 ```
 
-Unfortunately, we cannot remove the app module from the dependencies block, because it is required.
+Unfortunately, we cannot remove the app module from the dependencies block because it is required by the rules of the dynamic feature.
 
 #### App Module
 We just need to add the leaderboard api module inside the dependencies block, so the navigation interface will be avaliable.
@@ -236,5 +236,18 @@ dependencies {
 }
 ```
 
-#### Result
+We solve one issue and the app module does not have any classes that are from the feature module. What about the navigation xml file?
+
+#### Proxy Fragment
+
+We can add a FeatureProxyFragment inside the Leaderboard Api module. The class is going to be used in the app's navigation graph. The feature module will have its own navigation graph and it will be provided to the feature api module by the ModuleBinder interface.
+
+```kotlin
+interface ModuleBinder {
+    fun provideRootFragment(): Fragment
+}
+```
+
+
+### Result
 That is it. We have added the API module that has all classes that the app module and the leaderboard module would use. But we still have to write XML code by ourselves. If you are OK with that, that is not a probles, but if you are not, let's fix it.
