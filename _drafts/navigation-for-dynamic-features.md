@@ -8,10 +8,26 @@ poster: "/assets/navigation/poster.jpg"
 excerpt_separator: <!--more-->
 ---
 
+* Info
+* Leaderboard
+* * First try
+* * * Navigation interface
+* * * Leaderboard fragments
+* * * Navigation graph
+* * * Issues
+* * Make navigation great again
+* * * New module + move Navigation interface
+* * * Proxy fragment
+* * * Navigation graph
+* * * Result
+* Summary
+
 Dynamic features give you an opportunity to reduce the size of the APK. But nothing is that easy as you might think.
+<!-- TODO: More info -->
 <!--more-->
 
-In my previous article I was talking how to make a navigation system in multi-modular app. In this article we will continue to use described approach.
+In my previous article I was writing how to make a navigation system in multi-modular app. In this article we will continue to use described approach.
+<!-- TODO: Link -->
 
 ## New Dynamic Feature
 
@@ -121,6 +137,8 @@ class LeaderFragment : Fragment() {
 The createBundle method is going to be used to pass the args between screens.
 
 #### App Module
+
+<!-- TODO: how to open leaderboard -->
 
 We have everything we need to implement the navigation interfaces. Firstly, let's add the fragments inside the navigation graph.
 
@@ -248,6 +266,7 @@ interface ModuleBinder {
 }
 ```
 
+<!-- TODO: More info -->
 
 ### Result
 That is it. We have added the API module that has all classes that the app module and the leaderboard module would use. But we still have to write XML code by ourselves. If you are OK with that, that is not a probles, but if you are not, let's fix it.
