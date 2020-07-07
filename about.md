@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Some information about me
+Some information about me.
