@@ -237,6 +237,6 @@ class HalfCircleProgressBar extends StatelessWidget {
 }
 ```
 
-Here is the widget that encapsulates some things about the painter and adds default values for the required arguments. The important thing here is that we add size for the CustomPaint so that Painter knows the size of the canvas and the widget can be correctly positioned, for example, in a Stack widget.
+Here is the widget that encapsulates some things about the painter and adds default values for the required arguments. The important thing here is that we add size for the `CustomPaint` so that `Painter` knows the size of the canvas and the widget can be correctly positioned, for example, in a `Stack` widget.
 
-Also, ClipRect is added to cut everything that is out of the parent widget. That happens when a parent widget is smaller than the size needed to draw the progress bar.
+Also, `ClipRect` is added to cut everything that is out of the parent widget. That happens when a parent widget is smaller than the size needed to draw the progress bar.
